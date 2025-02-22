@@ -1,23 +1,31 @@
-import type React from "react"
+import type React from "react";
 
 interface PlanFeature {
-  text: string
-  included: boolean
+  text: string;
+  included: boolean;
 }
 
 interface PricingPlanProps {
-  title: string
-  price: string
-  features: PlanFeature[]
+  title: string;
+  price: string;
+  features: PlanFeature[];
 }
 
-const PricingCard: React.FC<PricingPlanProps> = ({ title, price, features }) => (
+const PricingCard: React.FC<PricingPlanProps> = ({
+  title,
+  price,
+  features,
+}) => (
   <div className="bg-white rounded-lg shadow-lg overflow-hidden">
     <div className="px-6 py-8">
-      <h3 className="text-2xl font-semibold text-center text-gray-900">{title}</h3>
+      <h3 className="text-2xl font-semibold text-center text-gray-900">
+        {title}
+      </h3>
       <div className="mt-4 flex justify-center">
         <span className="text-5xl font-extrabold text-gray-900">${price}</span>
-        <span className="ml-1 text-xl font-medium text-gray-500 self-end">/ month</span>
+        <span className="ml-1 text-xl font-medium text-gray-500 self-end">
+          / month
+        </span>
       </div>
       <ul className="mt-8 space-y-4">
         {features.map((feature, index) => (
@@ -27,8 +35,12 @@ const PricingCard: React.FC<PricingPlanProps> = ({ title, price, features }) => 
             ) : (
               <span className="flex-shrink-0 w-5 h-5"></span>
             )}
-            <span className={`ml-3 text-base ${feature.included ? "text-gray-700" : "text-gray-500"}`}>
-              {feature.text}
+            <span
+              className={`ml-3 text-base ${
+                feature.included ? "text-gray-700" : "text-gray-500"
+              }`}
+            >
+              {feature.text}s dfsd f sd
             </span>
           </li>
         ))}
@@ -40,7 +52,7 @@ const PricingCard: React.FC<PricingPlanProps> = ({ title, price, features }) => 
       </button>
     </div>
   </div>
-)
+);
 
 export default function PricingPlan() {
   const plans = [
@@ -75,12 +87,14 @@ export default function PricingPlan() {
         { text: "Auto Remove Invalid Chats", included: true },
       ],
     },
-  ]
+  ];
 
   return (
     <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-center text-gray-900 sm:text-4xl">Choose Your Plan</h1>
+        <h1 className="text-3xl font-extrabold text-center text-gray-900 sm:text-4xl">
+          Choose Your Plan
+        </h1>
         <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:grid-cols-3">
           {plans.map((plan, index) => (
             <PricingCard key={index} {...plan} />
@@ -88,6 +102,5 @@ export default function PricingPlan() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

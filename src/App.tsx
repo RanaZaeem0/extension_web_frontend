@@ -17,6 +17,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/profile" element={<Dashboard />} />
           </Route>
+
           <Route
             path="/login"
             element={
