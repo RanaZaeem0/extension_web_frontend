@@ -1,4 +1,4 @@
-import { CreditCard, Settings, User, Bell, BarChart3, Layout, LogOut } from 'lucide-react';
+import { CreditCard, Settings, User, Bell, BarChart3, Layout } from 'lucide-react';
 
 function Dashboard() {
   const userPlan = {
@@ -13,7 +13,7 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-200 p-6">
+      <aside className="w-64 bg-white sticky top-0 h-screen border-r border-gray-200 p-6">
         <div className="flex items-center gap-2 mb-8">
           <Layout className="h-8 w-8 text-blue-600" />
           <span className="font-bold text-xl">Dashboard</span>
@@ -32,18 +32,18 @@ function Dashboard() {
             <Bell className="h-5 w-5" />
             <span>Notifications</span>
           </a>
-          <a href="#" className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">
+          <a href="/profile/settings" className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg">
             <Settings className="h-5 w-5" />
             <span>Settings</span>
           </a>
         </nav>
 
-        <div className="mt-auto pt-8 border-t border-gray-200 fixed bottom-6">
+        {/* <div className="mt-auto pt-8 border-t border-gray-200 fixed bottom-6">
           <div className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer">
             <LogOut className="h-5 w-5" />
             <span>Logout</span>
           </div>
-        </div>
+        </div> */}
       </aside>
 
       {/* Main Content */}
