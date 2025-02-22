@@ -6,6 +6,9 @@ const Login = lazy(() => import("./pages/login/Login"));
 import LayoutLoader from "./components/LayoutLoader"
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/dashborad/Dashborad";
+import Setting from "./pages/setting/setting";
+import Home from "./pages/home/Home";
+import "./App.css"
 function App() {
 
 
@@ -23,8 +26,10 @@ function App() {
               
             }
           >
+            <Route path="/" element={<Home />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/profile" element={<Dashboard />} />
+            <Route path="/profile/settings" element={<Setting />} />
           </Route>
           <Route
             path="/login"
