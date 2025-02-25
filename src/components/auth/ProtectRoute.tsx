@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
+import LayoutLoader from "../LayoutLoader";
 
 interface ProtectRouteProps {
   children?: React.ReactNode;
@@ -7,13 +8,15 @@ interface ProtectRouteProps {
 }
 
 const ProtectRoute: React.FC<ProtectRouteProps> = ({ children, redirect = "/login", user }) => {
-  // Avoid re-rendering unnecessarily by ensuring stable conditions
+  // Avoid redirecting too early if user is still loading
+  if (user === undefined) {
+    return <LayoutLoader />;
+  }
+
   if (!user) {
     return <Navigate to={redirect} replace />;
   }
 
-  // Render children or an Outlet if no children
   return children ? <>{children}</> : <Outlet />;
 };
-
-export { ProtectRoute };
+export default ProtectRoute

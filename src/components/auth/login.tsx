@@ -1,14 +1,15 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import {  useState } from "react"
+import { BACKEND_URL } from "../../utils/constant/constant"
+
 
 const CustomLoginPage: React.FC = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-
   const validateForm = () => {
     if (!email || !password) {
       setError("Please fill in all fields")
@@ -24,6 +25,11 @@ const CustomLoginPage: React.FC = () => {
     }
     return true
   }
+
+
+  const googleAuth = () => {
+    window.open(`${BACKEND_URL}auth/google/callback`, "_self");
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -96,6 +102,8 @@ const CustomLoginPage: React.FC = () => {
             {isLoading ? "Logging in..." : "Log in"}
           </button>
         </form>
+
+        <button onClick={googleAuth}>LOGIN WITH Google</button>
       </div>
     </div>
   )
