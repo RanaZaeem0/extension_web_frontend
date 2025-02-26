@@ -28,7 +28,7 @@ const CustomLoginPage: React.FC = () => {
 
 
   const googleAuth = () => {
-    window.open(`${BACKEND_URL}auth/google/callback`, "_self");
+    window.open(`${BACKEND_URL}/auth/google/callback`, "_self");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
