@@ -1,4 +1,5 @@
 import type React from "react"
+import Pricing from "../../components/pricing/Pricing"
 
 interface PlanFeature {
   text: string
@@ -78,15 +79,8 @@ export default function PricingPlan() {
   ]
 
   return (
-    <div className="bg-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-extrabold text-center text-gray-900 sm:text-4xl">Choose Your Plan</h1>
-        <div className="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:grid-cols-3">
-          {plans.map((plan, index) => (
-            <PricingCard key={index} {...plan} />
-          ))}
-        </div>
-      </div>
+    <div className="">
+    <Pricing darkMode={true} />
     </div>
   )
 }
