@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get(`${BACKEND_URL}auth/login/success`, {
+      .get(`${BACKEND_URL}/auth/login/success`, {
         withCredentials: true,
       })
       .then((res) => {
