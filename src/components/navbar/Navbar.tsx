@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Link, NavLink } from "react-router-dom";
-import { FaSun, FaMoon, FaBars, FaUser, FaTachometerAlt, FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaSun, FaMoon, FaBars, FaTachometerAlt, FaSignOutAlt } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store/store";
 import { User } from "lucide-react";
 import axios from "axios";
 import { BACKEND_URL } from "../../utils/constant/constant";
-
+  
 // Animation Variants
 const sidebarVariants = {
   hidden: { x: "100%", opacity: 0 },
