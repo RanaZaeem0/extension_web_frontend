@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FaStar, FaRocket, FaUsers, FaCheck } from "react-icons/fa";
+import { STRIPE_MONTHLY_BASIC_PLAN_LINK, STRIPE_MONTHLY_PERMIUM_PLAN_LINK } from "../../utils/constant/constant";
+import BuyBtn from "../button/BuyBtn";
 
 // Animation Variants
 const fadeInUp = {
@@ -32,22 +34,24 @@ const Pricing: React.FC<PricingProps> = ({ darkMode }) => {
           {[
             {
               plan: "Basic Plan",
-              price: "$12.99",
-              period: "/month",
+              price: "Free",
+              period: "",
+              stirpePageLink:"",
               features: ["1 WhatsApp Account", "Unlimited Messages", "Real-Time Sending Progress", "Upload Excel", "Send Attachments", "Custom Group"],
               icon: <FaStar />,
             },
             {
               plan: "Pro Plan",
-              price: "$18.99",
+              price: "$5.00",
               period: "/month",
+              stirpePageLink:STRIPE_MONTHLY_BASIC_PLAN_LINK,
               features: ["3 WhatsApp Accounts", "All Basic Features", "Export Group Members", "Send Personalized Messages"],
               icon: <FaRocket />,
             },
             {
               plan: "Premium Plan",
-              price: "$24.99",
-              period: "/month",
+              price: "$15.00",
+              period: "/month",stirpePageLink:STRIPE_MONTHLY_PERMIUM_PLAN_LINK,
               features: ["5 WhatsApp Accounts", "All Pro Features", "Number Replacement", "Auto Remove Invalid Chats"],
               icon: <FaUsers />,
             },
@@ -71,13 +75,7 @@ const Pricing: React.FC<PricingProps> = ({ darkMode }) => {
                   </li>
                 ))}
               </ul>
-              <button
-                className={`w-full px-4 py-2 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base text-white font-semibold transition-all duration-300 backdrop-blur-lg cursor-pointer ${
-                  darkMode ? "bg-teal-800/80 hover:bg-teal-900/80" : "bg-teal-900/80 hover:bg-teal-950/80"
-                }`}
-              >
-                Get Started
-              </button>
+              <BuyBtn darkMode={darkMode} stripe_link={tier.stirpePageLink} />
             </motion.div>
           ))}
         </div>
