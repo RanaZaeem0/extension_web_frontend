@@ -1,23 +1,22 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
-import ProtectRoute from "./components/auth/ProtectRoute";
+import ProtectRoute  from "./components/auth/ProtectRoute";
 const Pricing = lazy(() => import("./pages/pricing/Pricing"));
 const Login = lazy(() => import("./pages/login/Login"));
 const Dashboard = lazy(() => import("./pages/dashborad/Dashborad"));
 const Setting = lazy(() => import("./pages/setting/setting"));
 const Home = lazy(() => import("./pages/home/Home"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Profile = lazy(() => import("./pages/profile/Profile"));
-import Navbar from "../src/components/navbar/Navbar";
-import LayoutLoader from "./components/LayoutLoader";
-import "./App.css";
+const Profile =lazy(()=> import('./pages/profile/Profile'))
+import Navbar from "../src/components/navbar/Navbar"
+import LayoutLoader from "./components/LayoutLoader"
+import "./App.css"
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { userExited, userNotExited } from "./redux/reducer/authSlice";
 import { RootState } from "./redux/store/store";
 import { useSelector } from "react-redux";
 import { BACKEND_URL } from "./utils/constant/constant";
-import PrivacyPolicy from "./pages/privacyPolicy/PrivacyPolicy";
 function App() {
   const { user } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
@@ -49,7 +48,7 @@ function App() {
   const toggleTheme = (): void => setDarkMode((prev) => !prev);
   return (
     <BrowserRouter>
-      <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
+    <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
       <Suspense fallback={<LayoutLoader />}>
         <Routes>
           <Route element={<ProtectRoute user={user} />}>
@@ -65,9 +64,8 @@ function App() {
               </ProtectRoute>
             }
           />
-          <Route path="/" element={<Home />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/" element={<Home />} />
+           <Route path="/pricing" element={<Pricing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
